@@ -1,14 +1,16 @@
 <template>
-  <top-rated></top-rated>
+  <div class="home">
+    <movies></movies>
+  </div>
 </template>
 
 <script>
-import TopRated from "../components/TopRated.vue";
+import Movies from "../components/Movies.vue";
+
 export default {
+  name: "Home",
   components: {
-    TopRated,
+    Movies,
   },
 };
 </script>
-
-<style></style>
