@@ -1,5 +1,5 @@
 <template>
-  <div v-for="movie in movies" :key="movie.id">
+  <div class="content" v-for="movie in movies" :key="movie.id">
     <div v-if="movie.id == id">
       <h1>{{ movie.title }}</h1>
       <h3>Release date: {{ movie.release_date }}</h3>
@@ -73,26 +73,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
-}
-.casting-container {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-}
-.profile {
-  width: 350px;
-  height: 420px;
-  border: 1px solid #333;
-  padding: 1rem;
-}
-</style>

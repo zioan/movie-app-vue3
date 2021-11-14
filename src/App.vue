@@ -1,44 +1,22 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Popular</router-link> |
-    <router-link
-      :to="{
-        name: 'Upcoming',
-      }"
-      >Upcoming</router-link
-    >
-    |
-    <router-link
-      :to="{
-        name: 'NowPlaying',
-      }"
-      >Now Playing</router-link
-    >
-  </div>
+  <header-nav></header-nav>
   <search-movie></search-movie>
   <router-view />
 </template>
 
 <script>
+import HeaderNav from "./components/HeaderNav.vue";
 import SearchMovie from "./components/SearchMovie.vue";
 export default {
   name: "App",
   components: {
+    HeaderNav,
     SearchMovie,
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  box-sizing: border-box;
-}
-
 #nav {
   padding: 30px;
 }

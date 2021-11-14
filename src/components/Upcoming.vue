@@ -1,5 +1,5 @@
 <template>
-  <div class="top-rated">
+  <div class="content">
     <h1>Upcoming Movies</h1>
     <div class="card-container">
       <div class="card" v-for="movie in movies" :key="movie.id">
@@ -46,16 +46,3 @@ https://api.themoviedb.org/3/movie/upcoming?api_key=0150f230986e887a5efff2e0af90
   },
 };
 </script>
-
-<style>
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-.card {
-  width: 600px;
-  border: 1px solid #333;
-  margin: 1rem;
-  padding: 1rem;
-}
-</style>
