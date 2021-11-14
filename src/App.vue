@@ -1,14 +1,19 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
+    <router-link to="/">Popular</router-link> |
     <router-link
       :to="{
-        name: 'Latest',
+        name: 'Upcoming',
       }"
-      >Latest</router-link
+      >Upcoming</router-link
     >
     |
+    <router-link
+      :to="{
+        name: 'NowPlaying',
+      }"
+      >Now Playing</router-link
+    >
   </div>
   <search-movie></search-movie>
   <router-view />

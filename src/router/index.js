@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import SingleMovie from "../components/SingleMovie.vue";
-import Latest from "../components/Latest.vue";
+import Upcoming from "../components/Upcoming.vue";
+import NowPlaying from "../components/NowPlaying.vue";
+import Search from "../views/Search.vue";
 
 const routes = [
   {
@@ -9,15 +11,7 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
+
   {
     path: "/movie/:id",
     name: "SingleMovie",
@@ -25,9 +19,20 @@ const routes = [
     props: true,
   },
   {
-    path: "/latest",
-    name: "Latest",
-    component: Latest,
+    path: "/search",
+    name: "Search",
+    component: Search,
+  },
+  {
+    path: "/upcoming",
+    name: "Upcoming",
+    component: Upcoming,
+    // props: true,
+  },
+  {
+    path: "/now-playing",
+    name: "NowPlaying",
+    component: NowPlaying,
     // props: true,
   },
 ];
@@ -35,6 +40,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior() {
+    return { left: 0, top: 0 };
+  },
 });
 
 export default router;

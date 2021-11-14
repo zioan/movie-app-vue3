@@ -1,10 +1,9 @@
 <template>
   <div v-for="movie in movies" :key="movie.id">
     <div v-if="movie.id == id">
-      <h1>{{ movie.original_title }}</h1>
+      <h1>{{ movie.title }}</h1>
       <h3>Release date: {{ movie.release_date }}</h3>
       <h3>Vote: {{ movie.vote_average }} from {{ movie.vote_count }} votes</h3>
-      <h3>id: {{ movie.id }}</h3>
       <div class="flex">
         <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
         <div>

@@ -1,20 +1,21 @@
 import { createStore } from "vuex";
 
-// const urlTopRated = `https://api.themoviedb.org/3/movie/popular?api_key=0150f230986e887a5efff2e0af9009b0&language=en-US&page=1`;
-
 export default createStore({
   state: {
+    searchQuery: "",
     movies: [],
-    tag: "popular",
-    url: null,
-    urlTopRated: `https://api.themoviedb.org/3/movie/popular?api_key=0150f230986e887a5efff2e0af9009b0&language=en-US&page=1`,
+    url: "",
   },
   mutations: {
-    topRatedMutation(state, movies) {
-      state.movies = movies;
-    },
     urlUpdate(state, payload) {
       state.url = payload;
+    },
+    searchQueryUpdate(state, payload) {
+      state.searchQuery = payload;
+      console.log(state.searchQuery);
+    },
+    topRatedMutation(state, movies) {
+      state.movies = movies;
     },
   },
   actions: {
@@ -23,6 +24,7 @@ export default createStore({
         .then((response) => response.json())
         .then((data) => {
           commit("topRatedMutation", data.results);
+          console.log("movie updated");
         })
         .catch((error) => {
           console.log(error.statusText);
