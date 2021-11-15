@@ -1,9 +1,20 @@
 <template>
-  <div class="container flex justify-between mx-auto">
-    <div class="p-4">
+  <div
+    class="
+      container
+      flex
+      md:flex-row md:justify-between
+      flex-col
+      items-center
+      justify-center
+      content-center
+      mx-auto
+    "
+  >
+    <div>
       <p class="p-4 text-lg border-8 w-max">The Movie DB API</p>
     </div>
-    <div id="nav">
+    <div id="nav" class="pt-8 pb-4 md:p-0">
       <router-link to="/">Popular</router-link> |
       <router-link
         :to="{
@@ -27,5 +38,3 @@ export default {
   name: "HeaderNav",
 };
 </script>
-
-<style></style>

@@ -1,15 +1,5 @@
 <template>
-  <div
-    class="
-      container
-      m-auto
-      bg-gray-500
-      p-4
-      flex flex-col
-      items-center
-      content-center
-    "
-  >
+  <div class="container m-auto p-4 flex flex-col items-center content-center">
     <h2 class="text-red-700 text-3xl pb-3" v-if="displayEmptySearch">
       Enter a mouvie name
     </h2>
@@ -19,7 +9,7 @@
           border-2
           bg-transparent
           p-2
-          w-10/12
+          md:w-96
           text-gray-100
           outline-none
           text-xl

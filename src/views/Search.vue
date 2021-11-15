@@ -2,7 +2,7 @@
   <div class="top-rated">
     <h1>Search Movies</h1>
     <div class="card-container">
-      <div class="card" v-for="movie in movies" :key="movie.id">
+      <div v-for="movie in movies" :key="movie.id">
         <div v-if="movie.poster_path">
           <router-link
             :to="{
@@ -11,8 +11,10 @@
               props: { movie: movie.title },
             }"
           >
-            <h2>{{ movie.title }}</h2>
-            <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+            <div class="card">
+              <h2>{{ movie.title }}</h2>
+              <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+            </div>
           </router-link>
         </div>
       </div>

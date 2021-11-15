@@ -2,7 +2,7 @@
   <div class="content">
     <h1>Top Popular Movies</h1>
     <div class="card-container">
-      <div class="card" v-for="movie in movies" :key="movie.id">
+      <div v-for="movie in movies" :key="movie.id">
         <div v-if="movie.poster_path">
           <router-link
             :to="{
@@ -10,8 +10,10 @@
               params: { id: movie.id },
             }"
           >
-            <h2>{{ movie.title }}</h2>
-            <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+            <div class="card">
+              <h2>{{ movie.title }}</h2>
+              <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+            </div>
           </router-link>
         </div>
       </div>
@@ -40,8 +42,16 @@ export default {
 
   methods: {
     imgPath(path) {
-      return "https://image.tmdb.org/t/p/w400" + path;
+      return "https://image.tmdb.org/t/p/w300" + path;
     },
   },
 };
 </script>
+
+<!-- <style>
+.card {
+  justify-content: space-between;
+  border: 1px solid red;
+  height: 600px;
+}
+</style> -->

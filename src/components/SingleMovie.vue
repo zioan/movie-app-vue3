@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     imgPath(path) {
-      return "https://image.tmdb.org/t/p/w400" + path;
+      return "https://image.tmdb.org/t/p/w300" + path;
     },
     imgCastingPath(path) {
       return "https://image.tmdb.org/t/p/w200" + path;

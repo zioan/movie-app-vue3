@@ -1,6 +1,8 @@
 <template>
-  <header-nav></header-nav>
-  <search-movie></search-movie>
+  <div class="bg-gray-700 py-7">
+    <header-nav></header-nav>
+    <search-movie></search-movie>
+  </div>
   <router-view />
 </template>
 
@@ -17,16 +19,13 @@ export default {
 </script>
 
 <style>
-#nav {
-  padding: 30px;
-}
-
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  padding: 0 20px;
+  color: #d4d4d4;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #f59e0b;
 }
 </style>
