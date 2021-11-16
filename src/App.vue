@@ -19,13 +19,13 @@ export default {
 </script>
 
 <style>
-#nav a {
+/* #nav a {
   font-weight: bold;
   padding: 0 20px;
   color: #d4d4d4;
-}
+} */
 
-#nav a.router-link-exact-active {
+/* #nav a.router-link-exact-active {
   color: #f59e0b;
-}
+} */
 </style>

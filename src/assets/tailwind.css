@@ -5,8 +5,17 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply box-border;
+  }
   #app {
-    @apply box-border bg-gray-800 m-0 text-gray-100;
+    @apply bg-gray-800 m-0 text-gray-100;
+  }
+  #nav a {
+    @apply font-bold md:px-4 px-2 text-gray-100;
+  }
+  #nav a.router-link-exact-active {
+    @apply text-yellow-500;
   }
   h1 {
     @apply text-gray-100 text-4xl font-bold text-center my-8;
@@ -27,10 +36,20 @@
     @apply bg-yellow-500  flex flex-wrap  gap-8 m-auto justify-evenly items-stretch;
   }
   .card {
-    @apply flex flex-col flex-1 w-96  items-center text-center justify-between m-1;
-    height: 476px;
+    @apply flex flex-col flex-1 sm:w-80 w-60 sm:h-large h-small items-center text-center justify-between m-1;
+  }
+  .card h2 {
+    @apply text-xl;
   }
   .card img {
-    @apply w-60;
+    @apply sm:w-imgWidthLarge sm:h-imgHeightLarge w-imgWidthSmall h-imgHeightSmall object-cover;
+  }
+
+  /* Single movie style */
+  .single-content {
+    @apply bg-yellow-500 py-10 px-10;
+  }
+  .single-content h3 {
+    @apply text-gray-700;
   }
 }

@@ -42,16 +42,8 @@ export default {
 
   methods: {
     imgPath(path) {
-      return "https://image.tmdb.org/t/p/w300" + path;
+      return "https://image.tmdb.org/t/p/w500" + path;
     },
   },
 };
 </script>
-
-<!-- <style>
-.card {
-  justify-content: space-between;
-  border: 1px solid red;
-  height: 600px;
-}
-</style> -->

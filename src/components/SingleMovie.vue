@@ -1,22 +1,26 @@
 <template>
-  <div class="content" v-for="movie in movies" :key="movie.id">
+  <div v-for="movie in movies" :key="movie.id">
     <div v-if="movie.id == id">
       <h1>{{ movie.title }}</h1>
-      <h3>Release date: {{ movie.release_date }}</h3>
-      <h3>Vote: {{ movie.vote_average }} from {{ movie.vote_count }} votes</h3>
-      <div class="flex">
-        <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
-        <div>
-          <h3>{{ movieDetails.tagline }}</h3>
-          <p>{{ movie.overview }}</p>
+      <div class="single-content content">
+        <div class="flex gap-20 justify-center">
+          <div class="w-2/6">
+            <h3>Release date: {{ movie.release_date }}</h3>
+            <h3>{{ movie.vote_average }} from {{ movie.vote_count }} votes</h3>
+            <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+          </div>
+          <div class="w-2/6 mt-20">
+            <h2>{{ movieDetails.tagline }}</h2>
+            <p>{{ movie.overview }}</p>
+          </div>
         </div>
-      </div>
-      <h2>Casting</h2>
-      <div class="casting-container">
-        <div class="cast" v-for="item in credits.cast" :key="item.id">
-          <div class="profile" v-if="item.profile_path">
-            <h3>{{ item.original_name }} as {{ item.character }}</h3>
-            <img :src="imgCastingPath(item.profile_path)" :alt="item.name" />
+        <h2>Casting</h2>
+        <div class="casting-container">
+          <div class="cast" v-for="item in credits.cast" :key="item.id">
+            <div class="profile" v-if="item.profile_path">
+              <h3>{{ item.original_name }} as {{ item.character }}</h3>
+              <img :src="imgCastingPath(item.profile_path)" :alt="item.name" />
+            </div>
           </div>
         </div>
       </div>
@@ -65,7 +69,7 @@ export default {
   },
   methods: {
     imgPath(path) {
-      return "https://image.tmdb.org/t/p/w300" + path;
+      return "https://image.tmdb.org/t/p/w400" + path;
     },
     imgCastingPath(path) {
       return "https://image.tmdb.org/t/p/w200" + path;
