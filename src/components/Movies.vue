@@ -31,7 +31,6 @@ export default {
   },
   created() {
     this.$store.commit("urlUpdate", this.url);
-    console.log(this.$store.state.url);
     this.$store.dispatch("topRated");
   },
   computed: {

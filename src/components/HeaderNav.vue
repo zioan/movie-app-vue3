@@ -12,7 +12,10 @@
     "
   >
     <div>
-      <p class="p-4 text-lg border-8 w-max md:mx-4 text-gray-100">
+      <p
+        @click.prevent="goHome"
+        class="p-4 text-lg border-8 w-max md:mx-4 text-gray-100 cursor-pointer"
+      >
         The Movie DB API
       </p>
     </div>
@@ -20,16 +23,16 @@
       <router-link to="/">Popular</router-link> |
       <router-link
         :to="{
-          name: 'Upcoming',
+          name: 'NowPlaying',
         }"
-        >Upcoming</router-link
+        >Now Playing</router-link
       >
       |
       <router-link
         :to="{
-          name: 'NowPlaying',
+          name: 'Upcoming',
         }"
-        >Now Playing</router-link
+        >Upcoming</router-link
       >
     </div>
   </div>
@@ -38,5 +41,10 @@
 <script>
 export default {
   name: "HeaderNav",
+  methods: {
+    goHome() {
+      this.$router.push({ path: "/" });
+    },
+  },
 };
 </script>

@@ -1,32 +1,33 @@
 <template>
   <div v-for="movie in movies" :key="movie.id">
     <div v-if="movie.id == id">
-      <h1>{{ movie.title }}</h1>
       <div class="single-content content">
-        <div class="md:flex gap-20 justify-center">
-          <div class="w-2/6">
-            <h3>Release date: {{ movie.release_date }}</h3>
-            <h3>{{ movie.vote_average }} from {{ movie.vote_count }} votes</h3>
-            <img
-              class="mt-10"
-              :src="imgPath(movie.poster_path)"
-              :alt="movie.title"
-            />
+        <h1>{{ movie.title }}</h1>
+        <div class="details">
+          <div class="lg:w-1/4 w-11/12 mt-10 flex flex-col items-center">
+            <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
           </div>
-          <div class="w-2/6 mt-20">
+          <div class="lg:w-5/12 w-11/12 mt-20">
+            <h3>Release date: {{ movie.release_date }}</h3>
+            <h3>
+              <span class="material-icons text-lg"> star_outline </span>
+              {{ movie.vote_average }}
+              from
+              {{ movie.vote_count }} votes
+            </h3>
             <h2>{{ movieDetails.tagline }}</h2>
             <p>{{ movie.overview }}</p>
           </div>
         </div>
-        <h2 class="text-center m-14">Casting</h2>
-        <div class="casting-container">
+        <h2 class="text-center mb-14 mt-20">Casting</h2>
+        <div class="casting-container" @wheel.prevent="wheel">
           <div class="cast" v-for="item in credits.cast" :key="item.id">
             <div class="profile" v-if="item.profile_path">
               <div class="names">
-                <h3 class="text-sm">
+                <h3>
                   {{ item.original_name }}
                 </h3>
-                <h3 class="text-sm">
+                <h3>
                   <span class="italic font-normal">as</span>
                   {{ item.character }}
                 </h3>
@@ -58,7 +59,6 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.movieDetails = data;
-        // console.log(this.movieDetails);
       })
       .catch((error) => {
         console.log(error.statusText);
@@ -68,7 +68,6 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.credits = data;
-        console.log(this.credits);
       })
       .catch((error) => {
         console.log(error.statusText);
@@ -81,10 +80,16 @@ export default {
   },
   methods: {
     imgPath(path) {
-      return "https://image.tmdb.org/t/p/w400" + path;
+      return "https://image.tmdb.org/t/p/w300" + path;
     },
     imgCastingPath(path) {
       return "https://image.tmdb.org/t/p/w200" + path;
+    },
+    wheel() {
+      const scrollContainer = document.querySelector(".casting-container");
+      scrollContainer.addEventListener("wheel", (e) => {
+        scrollContainer.scrollLeft += e.deltaY * -0.01;
+      });
     },
   },
 };

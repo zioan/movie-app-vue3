@@ -37,9 +37,6 @@ export default {
     return {
       displayEmptySearch: false,
       searchQuery: "",
-      // url:
-      //   "https://api.themoviedb.org/3/search/movie?api_key=0150f230986e887a5efff2e0af9009b0&query=" +
-      //   this.$store.state.searchQuery,
     };
   },
 
@@ -58,15 +55,9 @@ export default {
       } else {
         this.displayEmptySearch = false;
       }
-      // else {
-      //   this.$store.commit(
-      //   "urlUpdate",
-      //   "https://api.themoviedb.org/3/search/movie?api_key=0150f230986e887a5efff2e0af9009b0&query=" +
-      //     this.searchQuery
-      //   );
-      // }
 
       this.$store.dispatch("topRated");
+      this.searchQuery = "";
     },
   },
   created() {},

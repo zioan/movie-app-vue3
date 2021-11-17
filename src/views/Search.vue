@@ -1,6 +1,6 @@
 <template>
   <div class="top-rated">
-    <h1>Search Movies</h1>
+    <h1>Search for "{{ this.$store.state.searchQuery }}"</h1>
     <div class="card-container">
       <div v-for="movie in movies" :key="movie.id">
         <div v-if="movie.poster_path">

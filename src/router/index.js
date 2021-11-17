@@ -27,13 +27,11 @@ const routes = [
     path: "/upcoming",
     name: "Upcoming",
     component: Upcoming,
-    // props: true,
   },
   {
     path: "/now-playing",
     name: "NowPlaying",
     component: NowPlaying,
-    // props: true,
   },
 ];
 

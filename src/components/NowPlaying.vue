@@ -32,7 +32,6 @@ https://api.themoviedb.org/3/movie/now_playing?api_key=0150f230986e887a5efff2e0a
   },
   created() {
     this.$store.commit("urlUpdate", this.url);
-    console.log(this.$store.state.url);
     this.$store.dispatch("topRated");
   },
   computed: {

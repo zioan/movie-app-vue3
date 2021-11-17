@@ -12,7 +12,6 @@ export default createStore({
     },
     searchQueryUpdate(state, payload) {
       state.searchQuery = payload;
-      console.log(state.searchQuery);
     },
     topRatedMutation(state, movies) {
       state.movies = movies;
@@ -24,7 +23,6 @@ export default createStore({
         .then((response) => response.json())
         .then((data) => {
           commit("topRatedMutation", data.results);
-          console.log("movie updated");
         })
         .catch((error) => {
           console.log(error.statusText);
