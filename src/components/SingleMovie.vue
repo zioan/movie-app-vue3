@@ -7,7 +7,7 @@
           <div class="lg:w-1/4 w-11/12 mt-10 flex flex-col items-center">
             <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
           </div>
-          <div class="lg:w-5/12 w-11/12 mt-20">
+          <div class="lg:w-5/12 w-11/12 mt-20 self-start">
             <h3>Release date: {{ movie.release_date }}</h3>
             <h3>
               <span class="material-icons text-lg"> star_outline </span>
