@@ -11,7 +11,7 @@
             }"
           >
             <div class="card">
-              <h2>{{ movie.title }}</h2>
+              <h2 class="md:h-14">{{ movie.title }}</h2>
               <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
             </div>
           </router-link>

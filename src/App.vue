@@ -4,6 +4,9 @@
     <search-movie></search-movie>
   </div>
   <router-view />
+  <button class="toTop" @click="scrollToTop">
+    <span class="material-icons"> keyboard_double_arrow_up </span>
+  </button>
 </template>
 
 <script>
@@ -14,6 +17,11 @@ export default {
   components: {
     HeaderNav,
     SearchMovie,
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
 };
 </script>

@@ -8,7 +8,8 @@ module.exports = {
         small: "25rem",
         imgHeightLarge: "27rem",
         imgHeightSmall: "22.5rem",
-        castItemHeight: "26.25",
+        castItemHeight: "26.25rem",
+        imgHeightDefault: "33.62rem",
       },
       width: {
         imgWidthLarge: "18rem",

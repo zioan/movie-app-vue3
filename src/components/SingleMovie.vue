@@ -2,12 +2,12 @@
   <div v-for="movie in movies" :key="movie.id">
     <div v-if="movie.id == id">
       <div class="single-content content">
-        <h1>{{ movie.title }}</h1>
+        <h1 class="underline">{{ movie.title }}</h1>
         <div class="details">
           <div class="lg:w-1/4 w-11/12 mt-10 flex flex-col items-center">
             <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
           </div>
-          <div class="lg:w-5/12 w-11/12 mt-20 self-start">
+          <div class="lg:w-5/12 w-11/12 mt-10 self-center">
             <h3>Release date: {{ movie.release_date }}</h3>
             <h3>
               <span class="material-icons text-lg"> star_outline </span>
@@ -19,7 +19,7 @@
             <p>{{ movie.overview }}</p>
           </div>
         </div>
-        <h2 class="text-center mb-14 mt-20">Casting</h2>
+        <h2 class="text-center mb-10 lg:mt-20 underline">Casting</h2>
         <div class="casting-container" @wheel.prevent="wheel">
           <div class="cast" v-for="item in credits.cast" :key="item.id">
             <div class="profile" v-if="item.profile_path">
