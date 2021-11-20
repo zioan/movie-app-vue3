@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import SingleMovie from "../components/SingleMovie.vue";
-import Upcoming from "../components/Upcoming.vue";
-import NowPlaying from "../components/NowPlaying.vue";
+import Upcoming from "../views/Upcoming.vue";
+import NowPlaying from "../views/NowPlaying.vue";
 import Search from "../views/Search.vue";
 
 const routes = [

@@ -24,9 +24,6 @@
           name: 'Search',
         }"
       >
-        <!-- <button class="" @click="searchAction">
-          <span class="material-icons"> search </span>
-        </button> -->
       </router-link>
     </div>
   </div>
@@ -36,6 +33,7 @@
 export default {
   data() {
     return {
+      view: "search",
       displayEmptySearch: false,
       searchQuery: "",
     };
@@ -44,20 +42,15 @@ export default {
   methods: {
     searchAction() {
       this.$store.commit("searchQueryUpdate", this.searchQuery);
-      if (this.searchQuery !== "") {
-        this.$store.commit(
-          "urlUpdate",
-          "https://api.themoviedb.org/3/search/movie?api_key=0150f230986e887a5efff2e0af9009b0&query=" +
-            this.searchQuery
-        );
-      }
+      this.$store.dispatch("viewStatus", this.view);
+
       if (this.searchQuery === "") {
         this.displayEmptySearch = true;
       } else {
         this.displayEmptySearch = false;
       }
 
-      this.$store.dispatch("topRated");
+      this.$store.dispatch("fetchMovies");
       this.$router.push({ name: "Search" });
       this.searchQuery = "";
     },

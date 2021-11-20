@@ -1,57 +1,23 @@
 <template>
-  <div class="top-rated content">
-    <h1>Search for "{{ this.$store.state.searchQuery }}"</h1>
-    <div class="card-container">
-      <div v-for="movie in movies" :key="movie.id">
-        <div v-if="movie.poster_path">
-          <router-link
-            :to="{
-              name: 'SingleMovie',
-              params: { id: movie.id },
-              props: { movie: movie.title },
-            }"
-          >
-            <div class="card">
-              <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
-              <div class="card-inside">
-                <h2>{{ movie.title }}</h2>
-                <p v-if="movie.vote_average != 0">
-                  IMDB:
-                  <span class="material-icons text-lg"> star_outline </span>
-                  {{ movie.vote_average }}
-                </p>
-                <p v-if="movie.vote_average != 0">
-                  Votes:
-                  {{ movie.vote_count }}
-                </p>
-                <p
-                  class="
-                    mt-6
-                    overflow-ellipsis overflow-hidden
-                    text-justify text-sm
-                  "
-                >
-                  {{ movie.overview }}
-                </p>
-              </div>
-            </div>
-          </router-link>
-        </div>
-      </div>
-    </div>
-  </div>
+  <movies title="Top Popular Movies" :movies="movies"></movies>
 </template>
 
 <script>
+import Movies from "../components/Movies.vue";
+
 export default {
   name: "Search",
   data() {
-    return {};
+    return {
+      view: "search",
+    };
   },
-
+  components: {
+    Movies,
+  },
   computed: {
     movies() {
-      return this.$store.state.movies;
+      return this.$store.getters.movies;
     },
   },
   methods: {

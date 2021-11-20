@@ -53,7 +53,7 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("topRated");
+    this.$store.dispatch("fetchMovies");
 
     fetch(this.movieImagesUrl)
       .then((response) => response.json())

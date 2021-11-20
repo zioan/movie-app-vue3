@@ -1,14 +1,12 @@
 <template>
-  <div class="home">
-    <movies title="Top Popular Movies" :movies="movies"></movies>
-  </div>
+  <movies title="Top Popular Movies" :movies="movies"></movies>
 </template>
 
 <script>
 import Movies from "../components/Movies.vue";
 
 export default {
-  name: "Home",
+  name: "Upcoming",
   data() {
     return {
       view: "popular",

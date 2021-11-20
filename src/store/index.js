@@ -5,28 +5,45 @@ export default createStore({
     searchQuery: "",
     movies: [],
     url: "",
-    pageValue: 1,
+    view: "",
   },
   mutations: {
-    urlUpdate(state, payload) {
-      state.url = payload;
-    },
-    pageUpdate(state, payload) {
-      state.pageValue = payload;
-    },
     searchQueryUpdate(state, payload) {
       state.searchQuery = payload;
     },
-    topRatedMutation(state, movies) {
+    fetchMovies(state, movies) {
       state.movies = movies;
+    },
+    viewChange(state, payload) {
+      state.view = payload;
+      if (state.view === "popular") {
+        state.url =
+          "https://api.themoviedb.org/3/movie/popular?api_key=0150f230986e887a5efff2e0af9009b0&language=en-US&page=1";
+      }
+      if (state.view === "nowPlaying") {
+        state.url =
+          "https://api.themoviedb.org/3/movie/now_playing?api_key=0150f230986e887a5efff2e0af9009b0&language=en-US&page=2";
+      }
+      if (state.view === "upcoming") {
+        state.url =
+          "https://api.themoviedb.org/3/movie/upcoming?api_key=0150f230986e887a5efff2e0af9009b0&language=en-US&page=3";
+      }
+      if (state.view === "search") {
+        state.url = `https://api.themoviedb.org/3/search/movie?api_key=0150f230986e887a5efff2e0af9009b0&query=${state.searchQuery}`;
+        console.log("search page");
+      }
     },
   },
   actions: {
-    topRated({ commit }) {
+    viewStatus(context, payload) {
+      context.commit("viewChange", payload);
+      context.dispatch("fetchMovies");
+    },
+    fetchMovies(context) {
       fetch(this.state.url)
         .then((response) => response.json())
         .then((data) => {
-          commit("topRatedMutation", data.results);
+          context.commit("fetchMovies", data.results);
         })
         .catch((error) => {
           console.log(error.statusText);
@@ -34,4 +51,9 @@ export default createStore({
     },
   },
   modules: {},
+  getters: {
+    movies(state) {
+      return state.movies;
+    },
+  },
 });
