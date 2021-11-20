@@ -11,8 +11,28 @@
             }"
           >
             <div class="card">
-              <h2 class="md:h-14">{{ movie.title }}</h2>
               <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+              <div class="card-inside">
+                <h2>{{ movie.title }}</h2>
+                <p v-if="movie.vote_average != 0">
+                  IMDB:
+                  <span class="material-icons text-lg"> star_outline </span>
+                  {{ movie.vote_average }}
+                </p>
+                <p v-if="movie.vote_average != 0">
+                  Votes:
+                  {{ movie.vote_count }}
+                </p>
+                <p
+                  class="
+                    mt-6
+                    overflow-ellipsis overflow-hidden
+                    text-justify text-sm
+                  "
+                >
+                  {{ movie.overview }}
+                </p>
+              </div>
             </div>
           </router-link>
         </div>

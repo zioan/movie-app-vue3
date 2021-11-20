@@ -59,6 +59,7 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.movieDetails = data;
+        console.log(this.movieDetails);
       })
       .catch((error) => {
         console.log(error.statusText);

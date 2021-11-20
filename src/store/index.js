@@ -5,10 +5,14 @@ export default createStore({
     searchQuery: "",
     movies: [],
     url: "",
+    pageValue: 1,
   },
   mutations: {
     urlUpdate(state, payload) {
       state.url = payload;
+    },
+    pageUpdate(state, payload) {
+      state.pageValue = payload;
     },
     searchQueryUpdate(state, payload) {
       state.searchQuery = payload;

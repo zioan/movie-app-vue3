@@ -14,7 +14,8 @@
           outline-none
           text-xl
         "
-        v-model.trim.lazy="searchQuery"
+        v-model.trim="searchQuery"
+        @keypress.enter="searchAction"
         type="text"
         placeholder="Search Movie"
       />
@@ -23,9 +24,9 @@
           name: 'Search',
         }"
       >
-        <button class="" @click="searchAction">
+        <!-- <button class="" @click="searchAction">
           <span class="material-icons"> search </span>
-        </button>
+        </button> -->
       </router-link>
     </div>
   </div>
@@ -57,6 +58,7 @@ export default {
       }
 
       this.$store.dispatch("topRated");
+      this.$router.push({ name: "Search" });
       this.searchQuery = "";
     },
   },
