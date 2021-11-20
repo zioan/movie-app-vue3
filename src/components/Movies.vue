@@ -11,8 +11,16 @@
             }"
           >
             <div class="card">
-              <h2 class="md:h-14">{{ movie.title }}</h2>
               <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+              <div class="card-inside">
+                <h2>{{ movie.title }}</h2>
+                <h3>
+                  <span class="material-icons text-lg"> star_outline </span>
+                  {{ movie.vote_average }}
+                  from
+                  {{ movie.vote_count }} votes
+                </h3>
+              </div>
             </div>
           </router-link>
         </div>
