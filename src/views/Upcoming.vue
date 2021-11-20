@@ -9,7 +9,7 @@ export default {
   name: "Upcoming",
   data() {
     return {
-      view: "popular",
+      view: "upcoming",
     };
   },
   components: {
