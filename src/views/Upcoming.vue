@@ -1,9 +1,11 @@
 <template>
-  <movies title="Top Popular Movies" :movies="movies"></movies>
+  <movies title="Upcoming Movies" :movies="movies"></movies>
+  <movie-pages></movie-pages>
 </template>
 
 <script>
 import Movies from "../components/Movies.vue";
+import MoviePages from "../components/MoviePages.vue";
 
 export default {
   name: "Upcoming",
@@ -14,6 +16,7 @@ export default {
   },
   components: {
     Movies,
+    MoviePages,
   },
   created() {
     this.$store.dispatch("viewStatus", this.view);

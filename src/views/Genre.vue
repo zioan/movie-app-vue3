@@ -1,8 +1,6 @@
 <template>
-  <div class="home">
-    <movies title="Top Popular Movies" :movies="movies"></movies>
-    <movie-pages></movie-pages>
-  </div>
+  <movies :title="gen" :movies="movies"></movies>
+  <movie-pages></movie-pages>
 </template>
 
 <script>
@@ -10,23 +8,23 @@ import Movies from "../components/Movies.vue";
 import MoviePages from "../components/MoviePages.vue";
 
 export default {
-  name: "Home",
-  data() {
-    return {
-      view: "popular",
-    };
-  },
+  name: "Genre",
   components: {
     Movies,
     MoviePages,
   },
-  created() {
-    this.$store.dispatch("viewStatus", this.view);
-  },
+  // created() {
+  //   this.$store.dispatch("tagView");
+  // },
   computed: {
     movies() {
       return this.$store.getters.movies;
     },
+    gen() {
+      return this.$store.getters.gen;
+    },
   },
 };
 </script>
+
+<style></style>

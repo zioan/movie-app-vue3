@@ -4,6 +4,7 @@ import SingleMovie from "../components/SingleMovie.vue";
 import Upcoming from "../views/Upcoming.vue";
 import NowPlaying from "../views/NowPlaying.vue";
 import Search from "../views/Search.vue";
+import Genre from "../views/Genre.vue";
 
 const routes = [
   {
@@ -11,7 +12,6 @@ const routes = [
     name: "Home",
     component: Home,
   },
-
   {
     path: "/movie/:id",
     name: "SingleMovie",
@@ -32,6 +32,11 @@ const routes = [
     path: "/now-playing",
     name: "NowPlaying",
     component: NowPlaying,
+  },
+  {
+    path: "/search-by-tag",
+    name: "Genre",
+    component: Genre,
   },
 ];
 

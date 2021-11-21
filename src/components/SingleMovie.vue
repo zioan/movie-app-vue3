@@ -59,7 +59,6 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.movieDetails = data;
-        console.log(this.movieDetails);
       })
       .catch((error) => {
         console.log(error.statusText);
@@ -73,6 +72,9 @@ export default {
       .catch((error) => {
         console.log(error.statusText);
       });
+  },
+  updated() {
+    this.$store.dispatch("fetchMovies");
   },
   computed: {
     movies() {

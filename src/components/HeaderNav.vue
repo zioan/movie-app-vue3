@@ -20,11 +20,12 @@
       </p>
     </div>
     <div id="nav" class="pt-8 pb-4 md:p-0">
-      <router-link to="/">Popular</router-link> |
+      <router-link to="/" @click="resetPage">Popular</router-link> |
       <router-link
         :to="{
           name: 'NowPlaying',
         }"
+        @click="resetPage"
         >Now Playing</router-link
       >
       |
@@ -32,6 +33,7 @@
         :to="{
           name: 'Upcoming',
         }"
+        @click="resetPage"
         >Upcoming</router-link
       >
     </div>
@@ -44,6 +46,9 @@ export default {
   methods: {
     goHome() {
       this.$router.push({ path: "/" });
+    },
+    resetPage() {
+      this.$store.dispatch("pageReset");
     },
   },
 };

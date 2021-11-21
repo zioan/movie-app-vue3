@@ -6,14 +6,13 @@ module.exports = {
       height: {
         large: "33.25rem",
         small: "25rem",
-        imgHeightLarge: "27rem",
         imgHeightSmall: "22.5rem",
         castItemHeight: "26.25rem",
-        imgHeightDefault: "33.62rem",
+        cardHeight: "18.75rem",
       },
       width: {
-        imgWidthLarge: "18rem",
         imgWidthSmall: "15rem",
+        cardWidth: "12.5rem",
       },
     },
   },

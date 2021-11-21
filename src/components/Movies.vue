@@ -1,57 +1,62 @@
 <template>
   <div class="content">
     <h1>{{ title }}</h1>
-    <div class="card-container">
-      <div v-for="movie in movies" :key="movie.id">
-        <div v-if="movie.poster_path">
-          <router-link
-            :to="{
-              name: 'SingleMovie',
-              params: { id: movie.id },
-            }"
-          >
-            <div class="card">
-              <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
-              <div class="card-inside">
-                <h2>{{ movie.title }}</h2>
-                <p v-if="movie.vote_average != 0">
-                  IMDB:
-                  <span class="material-icons text-lg"> star_outline </span>
-                  {{ movie.vote_average }}
-                </p>
-                <p v-if="movie.vote_average != 0">
-                  Votes:
-                  {{ movie.vote_count }}
-                </p>
-                <p
+    <div class="layout">
+      <tag-selection></tag-selection>
+
+      <div class="card-container">
+        <div v-for="movie in movies" :key="movie.id">
+          <div v-if="movie.poster_path">
+            <router-link
+              :to="{
+                name: 'SingleMovie',
+                params: { id: movie.id },
+              }"
+            >
+              <div class="card">
+                <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
+                <div class="card-inside">
+                  <h2>{{ movie.title }}</h2>
+                  <div>
+                    <p v-if="movie.vote_average != 0">
+                      IMDB:
+                      <span class="material-icons text-base">
+                        star_outline
+                      </span>
+                      {{ movie.vote_average }}
+                    </p>
+                    <p v-if="movie.vote_average != 0">
+                      Votes:
+                      {{ movie.vote_count }}
+                    </p>
+                    <!-- <p
                   class="
-                    mt-6
+                    mt-3
                     overflow-ellipsis overflow-hidden
                     text-justify text-sm
                   "
                 >
                   {{ movie.overview }}
-                </p>
+                </p> -->
+                  </div>
+                </div>
               </div>
-            </div>
-          </router-link>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
-    <movie-pages></movie-pages>
   </div>
 </template>
 
 <script>
-import MoviePages from "./MoviePages.vue";
+import TagSelection from "./TagSelection.vue";
 export default {
   name: "Movies",
-
   props: ["title", "movies"],
   components: {
-    MoviePages,
+    TagSelection,
   },
-
   methods: {
     imgPath(path) {
       return "https://image.tmdb.org/t/p/w500" + path;

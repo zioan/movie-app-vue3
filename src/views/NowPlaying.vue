@@ -1,9 +1,12 @@
 <template>
   <movies title="Now Playing" :movies="movies"></movies>
+  <movie-pages></movie-pages>
 </template>
 
 <script>
 import Movies from "../components/Movies.vue";
+import MoviePages from "../components/MoviePages.vue";
+
 export default {
   name: "NowPlaying",
   data() {
@@ -13,6 +16,7 @@ export default {
   },
   components: {
     Movies,
+    MoviePages,
   },
   created() {
     this.$store.dispatch("viewStatus", this.view);

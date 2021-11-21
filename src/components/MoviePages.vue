@@ -1,8 +1,14 @@
 <template>
-  <div class="pages-nav">
-    <button @click="changePage(1)">1</button>
-    <button @click="changePage(2)">2</button>
-    <button @click="changePage(3)">3</button>
+  <div class="pages-nav content">
+    <button
+      v-for="index in 5"
+      :key="index"
+      class="activePageBtn"
+      :class="[pageActive === index ? 'active' : '']"
+      @click="changePage(index)"
+    >
+      {{ index }}
+    </button>
   </div>
 </template>
 
@@ -14,21 +20,17 @@ export default {
       page: "",
     };
   },
+
   methods: {
     changePage(value) {
       this.page = value;
-      console.log(this.page);
-      this.$store.commit("pageUpdate", this.page);
-      console.log(this.$store.state.pageValue + "state");
+      this.$store.dispatch("pageUpdate", this.page);
+    },
+  },
+  computed: {
+    pageActive() {
+      return this.$store.getters.page;
     },
   },
 };
 </script>
-
-<style scoped>
-button {
-  border: 1px solid black;
-  margin: 1rem;
-  padding: 0.2rem;
-}
-</style>
