@@ -14,6 +14,11 @@ import HeaderNav from "./components/HeaderNav.vue";
 import SearchMovie from "./components/SearchMovie.vue";
 export default {
   name: "App",
+  data() {
+    return {
+      tagsView: false,
+    };
+  },
   components: {
     HeaderNav,
     SearchMovie,

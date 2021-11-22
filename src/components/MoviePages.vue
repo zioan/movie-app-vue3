@@ -25,6 +25,8 @@ export default {
     changePage(value) {
       this.page = value;
       this.$store.dispatch("pageUpdate", this.page);
+      this.$store.dispatch("fullPageUpdate");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
   },
   computed: {

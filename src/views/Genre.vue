@@ -13,7 +13,9 @@ export default {
     Movies,
     MoviePages,
   },
-
+  updated() {
+    this.$store.dispatch("tagView");
+  },
   computed: {
     movies() {
       return this.$store.getters.movies;

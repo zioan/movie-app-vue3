@@ -2,8 +2,6 @@
   <div class="content">
     <h1>{{ title }}</h1>
     <div class="layout">
-      <tag-selection></tag-selection>
-
       <div class="card-container">
         <div v-for="movie in movies" :key="movie.id">
           <div v-if="movie.poster_path">
@@ -45,17 +43,21 @@
           </div>
         </div>
       </div>
+      <tag-selection></tag-selection>
     </div>
+    <!-- <movie-pages></movie-pages> -->
   </div>
 </template>
 
 <script>
+// import MoviePages from "../components/MoviePages.vue";
 import TagSelection from "./TagSelection.vue";
 export default {
   name: "Movies",
   props: ["title", "movies"],
   components: {
     TagSelection,
+    // MoviePages,
   },
   methods: {
     imgPath(path) {
