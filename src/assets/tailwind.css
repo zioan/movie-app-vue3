@@ -33,7 +33,7 @@
     @apply w-11/12 m-auto;
   }
   .layout {
-    @apply flex md:flex-row md:flex-row-reverse flex-col justify-between container bg-yellow-500 m-auto;
+    @apply flex  md:flex-row-reverse flex-col justify-between container bg-yellow-500 m-auto;
   }
 
   /* movies */
@@ -64,11 +64,26 @@
     @apply text-gray-700;
   }
   .details {
-    @apply flex flex-col lg:gap-20 lg:flex-row justify-center  content-center items-center;
+    @apply flex flex-col lg:gap-10 md:gap-10 md:flex-row justify-evenly  content-center;
+  }
+  .details h1 {
+    @apply mt-0 mb-6 xl:mb-12;
   }
   .single-content h3,
   p {
     @apply text-gray-700 text-lg;
+  }
+  .content-group {
+    @apply flex gap-2 justify-items-center text-gray-700;
+  }
+  .content-group h3 {
+    @apply pt-1;
+  }
+  .group {
+    @apply xl:flex gap-6;
+  }
+  .single-content h2 {
+    @apply mt-10 mb-6;
   }
   .single-content h3 {
     @apply leading-3;
@@ -110,9 +125,9 @@
     @apply flex justify-center pb-10 flex-wrap;
   }
   .activePageBtn {
-    @apply border-2 border-gray-100 rounded-sm md:px-6 md:py-3 md:m-5 p-2 m-2;
+    @apply border-2 border-yellow-500 text-yellow-500 rounded-sm md:px-6 md:py-3 md:m-5 p-2 m-2;
   }
   .active {
-    @apply bg-red-800;
+    @apply bg-gray-700;
   }
 }

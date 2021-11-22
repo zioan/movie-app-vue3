@@ -1,21 +1,45 @@
 <template>
   <div v-for="movie in movies" :key="movie.id">
     <div v-if="movie.id == id">
-      <div class="single-content content">
-        <h1 class="underline">{{ movie.title }}</h1>
+      <div class="single-content content container">
         <div class="details">
-          <div class="lg:w-1/4 w-11/12 mt-10 flex flex-col items-center">
+          <div class="xl:w-1/4 lg:w-2/4 w-full mt-4 flex flex-col">
             <img :src="imgPath(movie.poster_path)" :alt="movie.title" />
           </div>
-          <div class="lg:w-5/12 w-11/12 mt-10 self-center">
-            <h3>Release date: {{ movie.release_date }}</h3>
-            <h3>
-              <span class="material-icons text-lg"> star_outline </span>
-              {{ movie.vote_average }}
-              from
-              {{ movie.vote_count }} votes
-            </h3>
+          <div class="lg:w-5/12 w-11/12 mt-10">
+            <h1>{{ movie.title }}</h1>
+
+            <div class="group">
+              <div>
+                <div class="content-group xl:mb-4">
+                  <span class="material-icons"> event </span>
+                  <h3>{{ movie.release_date }}</h3>
+                </div>
+                <div class="content-group">
+                  <span class="material-icons"> play_arrow </span>
+                  <h3>{{ movieDetails.runtime }} min</h3>
+                </div>
+              </div>
+              <div>
+                <div class="content-group xl:mb-4">
+                  <span class="material-icons"> star_rate </span>
+                  <h3>
+                    {{ movie.vote_average }}
+                    from
+                    {{ movie.vote_count }} votes
+                  </h3>
+                </div>
+                <div class="content-group">
+                  <span class="material-icons"> movie_filter </span>
+                  <div v-for="gen in movieDetails.genres" :key="gen">
+                    <h3>{{ gen.name }}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <h2>{{ movieDetails.tagline }}</h2>
+
             <p>{{ movie.overview }}</p>
           </div>
         </div>
@@ -59,6 +83,7 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.movieDetails = data;
+        console.log(this.movieDetails);
       })
       .catch((error) => {
         console.log(error.statusText);
@@ -83,7 +108,7 @@ export default {
   },
   methods: {
     imgPath(path) {
-      return "https://image.tmdb.org/t/p/w300" + path;
+      return "https://image.tmdb.org/t/p/w400" + path;
     },
     imgCastingPath(path) {
       return "https://image.tmdb.org/t/p/w200" + path;

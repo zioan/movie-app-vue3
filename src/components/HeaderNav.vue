@@ -46,6 +46,7 @@ export default {
   methods: {
     goHome() {
       this.$router.push({ path: "/" });
+      this.$store.dispatch("pageReset");
     },
     resetPage() {
       this.$store.dispatch("pageReset");
