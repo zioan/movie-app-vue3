@@ -27,15 +27,6 @@
                       Votes:
                       {{ movie.vote_count }}
                     </p>
-                    <!-- <p
-                  class="
-                    mt-3
-                    overflow-ellipsis overflow-hidden
-                    text-justify text-sm
-                  "
-                >
-                  {{ movie.overview }}
-                </p> -->
                   </div>
                 </div>
               </div>
@@ -45,19 +36,16 @@
       </div>
       <tag-selection></tag-selection>
     </div>
-    <!-- <movie-pages></movie-pages> -->
   </div>
 </template>
 
 <script>
-// import MoviePages from "../components/MoviePages.vue";
 import TagSelection from "./TagSelection.vue";
 export default {
   name: "Movies",
   props: ["title", "movies"],
   components: {
     TagSelection,
-    // MoviePages,
   },
   methods: {
     imgPath(path) {

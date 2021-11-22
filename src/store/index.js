@@ -62,7 +62,6 @@ export default createStore({
     },
     tagView(context) {
       context.commit("updateTagUrl");
-      // context.commit("pageUpdate", payload);
       context.dispatch("fetchMovies");
     },
     pageReset(context) {

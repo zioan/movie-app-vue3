@@ -36,7 +36,6 @@ export default {
       this.$store.commit("viewReset");
       this.$store.dispatch("tagView");
       this.$router.push({ path: "/search-by-tag" });
-      // this.$store.dispatch("fetchMovies");
     },
   },
 };

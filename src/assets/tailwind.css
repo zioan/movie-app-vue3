@@ -10,7 +10,6 @@
   }
   #app {
     @apply text-gray-100 min-h-screen;
-    /* @apply bg-gray-800 m-0 text-gray-100; */
   }
   #nav a {
     @apply font-bold md:px-4 px-2 text-gray-100;
@@ -95,7 +94,7 @@
     @apply px-10 py-5 border-r-2 border-gray-500;
   }
   .tag {
-    @apply cursor-pointer bg-gray-500 px-6 py-2 my-2 md:text-left text-center;
+    @apply cursor-pointer bg-gray-500 px-5 py-2 my-2 md:text-left text-center;
   }
   .tag:hover {
     @apply underline bg-gray-600;

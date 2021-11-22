@@ -38,6 +38,10 @@ const routes = [
     name: "Genre",
     component: Genre,
   },
+  {
+    path: "/:catchAll(.*)",
+    redirect: "/",
+  },
 ];
 
 const router = createRouter({
