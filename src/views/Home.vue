@@ -1,9 +1,6 @@
 <template>
   <div class="home">
-    <movies
-      title="Top Popular Movies : WORK IN PROGRESS"
-      :movies="movies"
-    ></movies>
+    <movies title="Top Popular Movies" :movies="movies"></movies>
     <movie-pages></movie-pages>
   </div>
 </template>

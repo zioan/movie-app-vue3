@@ -83,6 +83,7 @@ export default createStore({
         })
         .catch((error) => {
           console.log(error.statusText);
+          window.location.href = "https://movie-app-vue3.netlify.app/";
         });
     },
   },
