@@ -38,10 +38,7 @@ const routes = [
     name: "Genre",
     component: Genre,
   },
-  {
-    path: "/:catchAll(.*)",
-    redirect: "/",
-  },
+  { path: "/:pathMatch(.*)*", component: Home },
 ];
 
 const router = createRouter({
